@@ -1,0 +1,9 @@
+<li class="{% if sub-nav.sub-nav %}has-dropdown{% endif %}">
+{% capture path2 %}{{ path }}/{{ sub-nav.name | slugify }}{% endcapture %}
+<a href="{{ path2 }}">{{ sub-nav.name }}</a>
+	{% if sub-nav.sub-nav %}
+	<ul class="dropdown">
+		{% include "sub-nav" with sub-nav.sub-nav %}
+	</ul>
+	{% endif %}
+</li>
